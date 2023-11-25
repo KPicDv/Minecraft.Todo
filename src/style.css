@@ -34,3 +34,7 @@ li.checked {
   text-decoration: line-through;
   color: #555;
 }
+
+li span {
+  margin-left: 8px;
+}
