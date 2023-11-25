@@ -63,20 +63,27 @@ const items = [
   'Tuer l\'Ender Dragon',
   'Trouver un navire de l\'End',
   'Fabriquer des élytres',
-  'Fabriuer une fusée de feu d\'artifice',
+  'Fabriquer une fusée de feu d\'artifice',
   'Voler'
 ]
 
 $total.innerText = items.length
 
-let checkedItems = 0
+const previouslyCheckedItems = localStorage.getItem('checked')
+const checkedItems = previouslyCheckedItems ? previouslyCheckedItems.split(',').map((item) => Number(item)) : []
 
 const refreshCheckedCount = () => {
-  $checkedCount.innerText = checkedItems
+  $checkedCount.innerText = checkedItems.length
 }
 
-items.forEach((item) => {
+refreshCheckedCount()
+
+items.forEach((item, index) => {
   const $li = document.createElement('li')
+
+  if (checkedItems.indexOf(index) != -1) {
+    $li.className = 'checked'
+  }
 
   const $checkbox = document.createElement('div')
   $checkbox.className = 'checkbox'
@@ -88,15 +95,17 @@ items.forEach((item) => {
   $li.appendChild($text)
 
   $li.onclick = () => {
-    $checkbox.checked = !$checkbox.checked
-    if ($checkbox.checked) {
+    if ($li.className === '') {
       $li.className = 'checked'
-      checkedItems++
+      checkedItems.push(index)
     } else {
       $li.className = ''
-      checkedItems--
+      const checkedIndex = checkedItems.indexOf(index)
+      console.log(checkedIndex);
+      checkedItems.splice(checkedIndex, 1)
     }
     refreshCheckedCount()
+    localStorage.setItem('checked', checkedItems)
   }
 
   $container.appendChild($li)
