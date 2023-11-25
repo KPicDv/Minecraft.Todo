@@ -44,9 +44,8 @@ const refreshCheckedCount = () => {
 items.forEach((item) => {
   const $li = document.createElement('li')
 
-  const $checkbox = document.createElement('input')
-  $checkbox.type = 'checkbox'
-  $checkbox.disabled = true
+  const $checkbox = document.createElement('div')
+  $checkbox.className = 'checkbox'
 
   const $text = document.createElement('span')
   $text.innerText = item

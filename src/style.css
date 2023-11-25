@@ -18,6 +18,9 @@ ul {
 }
 
 li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   position: relative;
   padding: 8px 12px;
   border-radius: 4px;
@@ -35,6 +38,40 @@ li.checked {
   color: #555;
 }
 
-li span {
-  margin-left: 8px;
+li .checkbox {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  border: 2px solid #FFF;
+  border-radius: 4px;
+}
+
+li.checked .checkbox {
+  background: #1f8b1f;
+  border-color: #1f8b1f;
+}
+
+li.checked .checkbox::before,
+li.checked .checkbox::after {
+  content: '';
+  height: 3px;
+  transform-origin: 0 0;
+  background: #FFF;
+  display: block;
+}
+
+li.checked .checkbox::before {
+  position: absolute;
+  top: 10px;
+  left: 5px;
+  width: 10px;
+  transform: rotate(50deg);
+}
+
+li.checked .checkbox::after {
+  position: absolute;
+  top: 17px;
+  left: 8px;
+  width: 16px;
+  transform: rotate(-45deg);
 }
