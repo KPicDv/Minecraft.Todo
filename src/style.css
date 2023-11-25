@@ -1,0 +1,36 @@
+body {
+  background: #222;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #FFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+}
+
+main {
+  max-width: 800px;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+li {
+  position: relative;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 4px;
+  transition-duration: 0.2s;
+}
+
+li:hover {
+  background: #282828;
+}
+
+li.checked {
+  text-decoration: line-through;
+  color: #555;
+}
