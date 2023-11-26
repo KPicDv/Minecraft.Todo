@@ -96,6 +96,8 @@ const items = [
   'Trouver une épave',
   'Trouver une carte au trésor',
   'Trouver un trésor enfoui',
+  'Trouver un temple sous-marin',
+  'Tuer le Grand gardien',
   'Invoquer le Wither',
   'Tuer le Wither',
   'Fabriquer une balise',
